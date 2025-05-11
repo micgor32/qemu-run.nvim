@@ -17,13 +17,7 @@ function M.qemu_run(opts)
 	-- feel free to just remove -nographic -nodefaults flags.
 	local mode = opts.mode or "-bios"
 	local image = opts.image or "build/coreboot.rom"
-	local smp = opts.smp or ""
-	local ncpus
-	if smp ~= "" then
-		ncpus = opts.ncpus
-	else 
-		ncpus = ""
-	end
+	local smp = opts.smp or 1
 	local kvm = opts.kvm or ""
 	local mainboard = opts.mainboard or "q35"
 	local arch = opts.arch or "x86_64"
@@ -31,8 +25,8 @@ function M.qemu_run(opts)
 	local serial = opts.serial or "stdio"
 	-- Okay this is extremely ugly. But hey it works :D
 	vim.cmd(display .. " term://qemu-system-" .. arch .. " " .. mode .. " "
-			.. image .. " -M " .. mainboard .. " -serial " .. serial .. " -nographic -nodefaults -"
-			.. smp .. " " .. ncpus .. " " .. kvm)
+			.. image .. " -M " .. mainboard .. " -serial " .. serial .. " -nographic -nodefaults -smp"
+			.. smp .. " " .. kvm)
 end
 
 function M.setup(opts)
