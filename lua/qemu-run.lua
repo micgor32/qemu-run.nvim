@@ -25,7 +25,7 @@ function M.qemu_run(opts)
 	local serial = opts.serial or "stdio"
 	-- Okay this is extremely ugly. But hey it works :D
 	vim.cmd(display .. " term://qemu-system-" .. arch .. " " .. mode .. " "
-			.. image .. " -M " .. mainboard .. " -serial " .. serial .. " -nographic -nodefaults -smp"
+			.. image .. " -M " .. mainboard .. " -serial " .. serial .. " -nographic -nodefaults -smp "
 			.. smp .. " " .. kvm)
 end
 
