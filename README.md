@@ -16,16 +16,16 @@ require("lazy").setup({
     {
 		"micgor32/qemu-run.nvim",
 		opts = {
-            display = ""
-            arch = "x86_64" -- QEMU target architecture, if left empty -> x86_64
-            mode = "-bios" -- specify whether you want to run bios image (coreboot/EDK2/u-boot) or kernel, if left empty -> -bios
-			image = "build/coreboot" -- (full) path to the kernel/bios image. By default it assumes that qemu is started in coreboot source tree with rom already built
-            mainboard = "q35" -- specify mainboard, if left empty -> Q35
-            kvm = "" -- enables KVM hardware acceleration (Linux only). Disabled by default, change to "-enable-kvm" if you want to use it.
-            serial = "stdio" -- specify where the serial output is redirected. By deafult to stdio.
-            smp = 1 -- specify number of CPUs that are going to be emulated. By default single core.
+                    display = "vsplit" -- specify how QEMU buffer will be displayed, if left empty -> vsplit
+            	    arch = "x86_64" -- QEMU target architecture, if left empty -> x86_64
+            	    mode = "-bios" -- specify whether you want to run bios image (coreboot/EDK2/u-boot) or kernel, if left empty -> -bios
+		    image = "build/coreboot" -- (full) path to the kernel/bios image. By default it assumes that qemu is started in coreboot source tree with rom already built
+            	    mainboard = "q35" -- specify mainboard, if left empty -> Q35
+            	    kvm = "" -- enables KVM hardware acceleration (Linux only). Disabled by default, change to "-enable-kvm" if you want to use it.
+            	    serial = "stdio" -- specify where the serial output is redirected. By deafult to studio.
+  		    smp = 1 -- specify number of CPUs that are going to be emulated. By default single core.
 		}
-	},
+    },
 ```
 
 ## Mappings
